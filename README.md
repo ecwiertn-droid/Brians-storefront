@@ -10,6 +10,13 @@ A Next.js web app with two sections:
 
 Everything under `/admin` is gated by a single shared password (see below).
 
+## Home page photos
+
+The home page has three photo slots with subtle motion (a floating-icon
+animated hero, scroll-reveal cards). Until real photos are added they show
+a clean animated placeholder instead of a broken image. To add real
+photos, see `public/images/README.md` for exact filenames.
+
 ## Project structure
 
 ```
