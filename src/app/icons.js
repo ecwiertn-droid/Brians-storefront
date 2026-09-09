@@ -42,3 +42,43 @@ export function CameraIcon(props) {
     </svg>
   );
 }
+
+export function LeafIcon(props) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" {...props}>
+      <path d="M10 38C8 22 20 8 40 8c2 20-12 32-28 30Z" strokeLinejoin="round" />
+      <path d="M12 36 30 18" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function CalendarIcon(props) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" {...props}>
+      <rect x="6" y="10" width="36" height="32" rx="4" />
+      <line x1="6" y1="19" x2="42" y2="19" />
+      <line x1="15" y1="5" x2="15" y2="14" strokeLinecap="round" />
+      <line x1="33" y1="5" x2="33" y2="14" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SparkleIcon(props) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" {...props}>
+      <path
+        d="M24 6c1.5 8 3 9.5 11 11-8 1.5-9.5 3-11 11-1.5-8-3-9.5-11-11 8-1.5 9.5-3 11-11Z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ArrowRightIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" {...props}>
+      <line x1="4" y1="12" x2="20" y2="12" strokeLinecap="round" />
+      <polyline points="13 5 20 12 13 19" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

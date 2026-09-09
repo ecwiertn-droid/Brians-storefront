@@ -1,6 +1,13 @@
 import "./globals.css";
+import { Manrope } from "next/font/google";
 import DemoBanner from "./DemoBanner";
 import { isSupabaseConfigured } from "@/lib/supabaseServer";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Brian's Smoothie Bar & Fitness",
@@ -15,7 +22,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.variable}>
       <body>
         {!isSupabaseConfigured() && <DemoBanner />}
         <header className="site-header">
@@ -27,7 +34,7 @@ export default function RootLayout({ children }) {
               <a href="/smoothie">Smoothie Bar</a>
               <a href="/fitness">Fitness</a>
               <a href="/fitness/nutrition">Nutrition Pathway</a>
-              <a href="/fitness/book">Book Now</a>
+              <a className="nav-cta" href="/fitness/book">Book Now</a>
             </nav>
           </div>
         </header>
