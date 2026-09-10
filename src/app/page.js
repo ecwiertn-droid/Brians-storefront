@@ -47,7 +47,7 @@ export default function HomePage() {
             </a>
             <a
               className="btn"
-              style={{ background: "white", color: "#204b28", boxShadow: "none" }}
+              style={{ background: "white", color: "#141726", boxShadow: "none" }}
               href="/fitness"
             >
               Explore fitness &amp; nutrition
@@ -178,7 +178,7 @@ export default function HomePage() {
             <div className="hero-links">
               <a
                 className="btn"
-                style={{ background: "white", color: "#b23a68", boxShadow: "none" }}
+                style={{ background: "white", color: "#5a3fd6", boxShadow: "none" }}
                 href="/fitness/schedule"
               >
                 Book a free assessment
