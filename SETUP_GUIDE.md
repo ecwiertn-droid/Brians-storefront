@@ -71,6 +71,10 @@ customers, if you'd rather not pay both from day one.
 3. Once the project is ready, go to the **SQL Editor**, click **New query**,
    paste in the entire contents of `supabase/schema.sql` from this project,
    and run it. This creates all the tables the app needs.
+   - If you already ran `schema.sql` before the Youth Camps feature was
+     added, it won't have the two new camp tables. Run
+     `supabase/migration_youth_camps.sql` once (same SQL Editor, new query)
+     to add them without touching your existing data.
 4. Go to **Project Settings → API**. You'll need three values from this page:
    - **Project URL** → this is `NEXT_PUBLIC_SUPABASE_URL`
    - **anon public key** → this is `NEXT_PUBLIC_SUPABASE_ANON_KEY`

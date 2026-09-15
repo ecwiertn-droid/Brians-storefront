@@ -67,19 +67,54 @@ create table if not exists nutrition_responses (
   created_at timestamptz not null default now()
 );
 
--- Row Level Security: public site can only READ hours/menu/trainers/slots.
--- All writes (admin edits, bookings, nutrition submissions) go through
--- server-side API routes using the service role key, which bypasses RLS.
+create table if not exists camp_sessions (
+  id uuid primary key default gen_random_uuid(),
+  sport text not null, -- flag_football, soccer, track
+  title text not null,
+  description text,
+  start_date date not null,
+  end_date date not null,
+  price_cents integer not null default 0,
+  capacity integer not null default 20,
+  is_active boolean not null default true,
+  sort_order integer not null default 0,
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists camp_registrations (
+  id uuid primary key default gen_random_uuid(),
+  session_id uuid references camp_sessions(id) on delete set null,
+  sport text not null,
+  child_name text not null,
+  child_age integer,
+  parent_name text not null,
+  parent_email text not null,
+  parent_phone text,
+  notes text,
+  amount_cents integer not null default 0,
+  stripe_session_id text,
+  payment_status text not null default 'pending', -- pending, paid, canceled
+  created_at timestamptz not null default now()
+);
+
+-- Row Level Security: public site can only READ hours/menu/trainers/slots/
+-- camp sessions. All writes (admin edits, bookings, registrations,
+-- nutrition submissions) go through server-side API routes using the
+-- service role key, which bypasses RLS.
 alter table weekly_hours enable row level security;
 alter table menu_items enable row level security;
 alter table trainers enable row level security;
 alter table schedule_slots enable row level security;
 alter table bookings enable row level security;
 alter table nutrition_responses enable row level security;
+alter table camp_sessions enable row level security;
+alter table camp_registrations enable row level security;
 
 create policy "public read hours" on weekly_hours for select using (true);
 create policy "public read menu" on menu_items for select using (true);
 create policy "public read trainers" on trainers for select using (true);
 create policy "public read slots" on schedule_slots for select using (true);
--- No public policies on bookings / nutrition_responses: those only go through
--- the server (service role key), so client-side users can't read other people's data.
+create policy "public read camp sessions" on camp_sessions for select using (true);
+-- No public policies on bookings / nutrition_responses / camp_registrations:
+-- those only go through the server (service role key), so client-side users
+-- can't read other people's data.

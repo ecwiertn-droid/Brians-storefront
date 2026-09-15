@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
             <nav className="main-nav">
               <a href="/smoothie">Smoothie Bar</a>
               <a href="/fitness">Fitness</a>
+              <a href="/camps">Youth Camps</a>
               <a href="/fitness/nutrition">Nutrition Pathway</a>
               <a className="nav-cta" href="/fitness/book">Book Now</a>
             </nav>

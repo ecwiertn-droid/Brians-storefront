@@ -42,6 +42,42 @@ export const SAMPLE_TRAINERS = [
   },
 ];
 
+export const SAMPLE_CAMP_SESSIONS = [
+  {
+    id: "cs1",
+    sport: "flag_football",
+    title: "Flag Football Camp",
+    description: "A week of drills, flag-pulling technique, and small-sided games.",
+    start_date: "2026-10-05",
+    end_date: "2026-10-09",
+    price_cents: 12000,
+    capacity: 20,
+    is_active: true,
+  },
+  {
+    id: "cs2",
+    sport: "soccer",
+    title: "Soccer Camp",
+    description: "Footwork, passing, and game play for developing young players.",
+    start_date: "2026-10-12",
+    end_date: "2026-10-16",
+    price_cents: 12000,
+    capacity: 20,
+    is_active: true,
+  },
+  {
+    id: "cs3",
+    sport: "track",
+    title: "Track Camp",
+    description: "Running form, speed work, and event basics for youth athletes.",
+    start_date: "2026-10-19",
+    end_date: "2026-10-23",
+    price_cents: 10000,
+    capacity: 20,
+    is_active: true,
+  },
+];
+
 export const SAMPLE_SLOTS = [
   { id: "sl1", day_of_week: 0, start_time: "09:00:00", end_time: "09:30:00", is_booked: false, trainers: { name: "Jordan Reyes" } },
   { id: "sl2", day_of_week: 0, start_time: "10:00:00", end_time: "10:30:00", is_booked: true, trainers: { name: "Jordan Reyes" } },

@@ -7,8 +7,24 @@ A Next.js web app with two sections:
   nutrition-pathway questionnaire, and bookable services (assessment, nutrition
   consult, guided grocery visit, workout plan, meal prep) with Stripe checkout
   for the paid ones.
+- **Youth Camps** — flag football, soccer, and track camps, each with an
+  example training video, a list of upcoming sessions, and Stripe-backed
+  registration for parents.
 
 Everything under `/admin` is gated by a single shared password (see below).
+
+## Youth Camps videos
+
+Each sport on `/camps` shows an embedded YouTube video as a stand-in until
+Brian's has its own camp footage. They're real, currently-live videos from
+other coaches/creators (not stock footage), clearly labeled as examples on
+the page itself. To swap in real footage, open `src/lib/camps.js` and
+replace each sport's `videoId` with your own YouTube video's ID (the part
+of the URL after `watch?v=`), then remove or update `videoCredit`.
+
+If your database was already set up before this feature was added, run
+`supabase/migration_youth_camps.sql` once in the Supabase SQL Editor to add
+the two new tables (a fresh setup already gets them from `schema.sql`).
 
 ## Home page photos
 
@@ -56,7 +72,8 @@ swap this for Supabase Auth (there's a note in the setup guide).
 ## Data model
 
 See `supabase/schema.sql`. Tables: `weekly_hours`, `menu_items`, `trainers`,
-`schedule_slots`, `bookings`, `nutrition_responses`.
+`schedule_slots`, `bookings`, `nutrition_responses`, `camp_sessions`,
+`camp_registrations`.
 
 ## Payments
 

@@ -27,12 +27,21 @@ export async function POST(req) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
     const bookingId = session.metadata?.booking_id;
-    if (bookingId) {
-      const supabase = supabaseServer();
+    const campRegistrationId = session.metadata?.camp_registration_id;
+    const supabase = supabaseServer();
+
+    if (bookingId && supabase) {
       await supabase
         .from("bookings")
         .update({ payment_status: "paid" })
         .eq("id", bookingId);
+    }
+
+    if (campRegistrationId && supabase) {
+      await supabase
+        .from("camp_registrations")
+        .update({ payment_status: "paid" })
+        .eq("id", campRegistrationId);
     }
   }
 

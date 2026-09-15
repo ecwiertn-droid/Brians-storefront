@@ -11,6 +11,8 @@ export default function AdminHome() {
     { href: "/admin/schedule", label: "Assessment Schedule", desc: "Set next week's open assessment slots" },
     { href: "/admin/bookings", label: "Bookings", desc: "See everyone who has booked a service" },
     { href: "/admin/nutrition", label: "Nutrition Pathway Responses", desc: "See questionnaire answers and leads" },
+    { href: "/admin/camps", label: "Youth Camp Sessions", desc: "Add or edit flag football, soccer & track sessions" },
+    { href: "/admin/camp-registrations", label: "Youth Camp Registrations", desc: "See who has registered for a camp" },
   ];
 
   return (
